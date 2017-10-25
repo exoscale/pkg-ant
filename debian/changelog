@@ -2,6 +2,7 @@ ant (1.9.6-1ubuntu1~precise0+exo1) precise; urgency=medium
 
   * Backport for Precise.
     - Fix parsing of debian/changelog date.
+    - Enforce dependency on junit4 >= 4.11.
 
  -- Vincent Bernat <bernat@debian.org>  Wed, 25 Oct 2017 20:33:42 +0200
 

@@ -1,0 +1,102 @@
+Source: ant
+Section: java
+Priority: optional
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+XSBC-Original-Maintainer: Debian Java Maintainers <pkg-java-maintainers@lists.alioth.debian.org>
+Uploaders: Matthias Klose <doko@debian.org>,
+           Ludovic Claude <ludovic.claude@laposte.net>,
+           Torsten Werner <twerner@debian.org>,
+           James Page <james.page@canonical.com>,
+           Emmanuel Bourg <ebourg@apache.org>
+Build-Depends: antlr,
+               cdbs (>= 0.4.8),
+               debhelper (>= 9),
+               default-jdk,
+               gcj-native-helper,
+               junit,
+               junit4,
+               libbcel-java (>= 5.0),
+               libbsf-java (>= 2.3.0rc1),
+               libcommons-logging-java,
+               libcommons-net-java,
+               libgnumail-java,
+               libjdepend-java,
+               libjsch-java,
+               liblog4j1.2-java,
+               liboro-java,
+               libregexp-java,
+               libxalan2-java (>= 2.4.0),
+               libxml-commons-resolver1.1-java (>= 1.2-7~),
+               maven-repo-helper (>> 1.0)
+Standards-Version: 3.9.6
+Vcs-Git: git://anonscm.debian.org/pkg-java/ant.git
+Vcs-Browser: http://anonscm.debian.org/cgit/pkg-java/ant.git
+Homepage: http://ant.apache.org
+
+Package: ant
+Architecture: all
+Depends: default-jre-headless | java5-runtime-headless | java6-runtime-headless | java7-runtime-headless,
+         ${misc:Depends}
+Recommends: ant-optional
+Suggests: ant-doc, ant-gcj, default-jdk | java-compiler | java-sdk
+Conflicts: libant1.6-java
+Replaces: ant-doc (<= 1.6.5-1), libant1.6-java
+Breaks: ant-doc (<= 1.6.5-1)
+Description: Java based build tool like make
+ A system independent (i.e. not shell based) build tool that uses XML
+ files as "Makefiles". This package contains the scripts and the core
+ tasks libraries.
+
+Package: ant-gcj
+Architecture: any
+Depends: ant, ${misc:Depends}, ${shlibs:Depends}
+Description: Java based build tool like make (GCJ)
+ A system independent (i.e. not shell based) build tool that uses XML
+ files as "Makefiles".
+ .
+ This package contains a native version of ant built using gcj.
+
+Package: ant-optional
+Architecture: all
+Depends: ant (= ${source:Version}), ${misc:Depends}
+Suggests: ant-optional-gcj,
+          antlr,
+          javacc,
+          junit,
+          jython,
+          libbcel-java (>= 5.0),
+          libbsf-java,
+          libcommons-logging-java,
+          libcommons-net-java,
+          libgnumail-java,
+          libjaxp1.3-java,
+          libjdepend-java,
+          libjsch-java,
+          liblog4j1.2-java,
+          liboro-java,
+          libregexp-java,
+          libxalan2-java (>= 2.4.0-1),
+          libxml-commons-resolver1.1-java
+Conflicts: libant1.6-java
+Replaces: libant1.6-java
+Description: Java based build tool like make - optional libraries
+ A system independent (i.e. not shell based) build tool that uses XML
+ files as "Makefiles". This package contains the optional tasks libraries.
+
+Package: ant-optional-gcj
+Architecture: any
+Depends: ant-optional, ${misc:Depends}, ${shlibs:Depends}
+Description: Java based build tool like make - optional libraries (GCJ)
+ A system independent (i.e. not shell based) build tool that uses XML
+ files as "Makefiles". This package contains the optional tasks libraries
+ compiled natively.
+
+Package: ant-doc
+Architecture: all
+Section: doc
+Depends: ${misc:Depends}
+Suggests: ant
+Description: Java based build tool like make - API documentation and manual
+ A system independent (i.e. not shell based) build tool that uses XML files
+ as "Makefiles". This package contains the manual of ant as well as the
+ Javadoc API documentation.
